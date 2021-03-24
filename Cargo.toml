@@ -8,3 +8,9 @@ version = "0.4.0"
 authors = ["Chris Denton <christophersdenton@gmail.com>"]
 edition = "2018"
 license = "MIT OR Apache-2.0 OR Zlib"
+repository = "https://github.com/ChrisDenton/link_args"
+keywords = ["windows", "msvc", "link"]
+categories = ["development-tools::build-utils", "no-std"]
+exclude = [
+    "examples/*"
+]
