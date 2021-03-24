@@ -5,7 +5,7 @@ link_args::msvc! {
 
     // Link the ucrt dynamically and vcruntime statically.
     default_lib("ucrt", "libvcruntime", "libcmt");
-    // Disable the other C variants library.
+    // Disable the other C runtime libraries.
     no_default_lib(
         "libvcruntimed.lib", "vcruntime.lib", "vcruntimed.lib",
         "libcmtd.lib", "msvcrt.lib", "msvcrtd.lib",

@@ -1,6 +1,6 @@
 // NOTE TO SELF: These macros are horrible copy/pasta. Rewrite.
 
-//! Send arguments to the linker from within `main.rs` or `lib.rs`.
+//! Send arguments to the linker from within `main.rs`.
 //! Currently only supports Windows MSVC.
 //!
 //! # Usage
