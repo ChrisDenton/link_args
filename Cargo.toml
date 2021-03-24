@@ -1,0 +1,10 @@
+[package]
+name = "link_args"
+description = """\
+    Send arguments to the linker from within `main.rs` or `lib.rs`.\
+    Currently only supports Windows MSVC.\
+"""
+version = "0.4.0"
+authors = ["Chris Denton <christophersdenton@gmail.com>"]
+edition = "2018"
+license = "MIT OR Apache-2.0 OR Zlib"
