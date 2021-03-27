@@ -22,5 +22,5 @@ link_args::windows_msvc::stack_size!(0x800000);
 ## Add a library
 
 ```rust
-link_args::windows_msvc::default_lib("kernel32.lib");
+link_args::windows_msvc::default_lib!("kernel32.lib");
 ```

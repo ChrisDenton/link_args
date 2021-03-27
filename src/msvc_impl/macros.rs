@@ -121,7 +121,7 @@ macro_rules! impl_msvc_default_lib {
 ///
 /// # Unsafe arguments
 ///
-/// ```rust
+/// ```no_run
 /// link_args::windows_msvc! {
 ///     unsafe {
 ///         // Prevent some libraries being used unless they specified on the
