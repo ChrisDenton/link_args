@@ -1,10 +1,10 @@
 [package]
 name = "link_args"
 description = """\
-    Send arguments to the linker from within `main.rs` or `lib.rs`. \
-    Currently only supports Windows MSVC.\
+    Supports setting linker arugments at compile time without a build script. \
+    Currently only supports Windows MSVC toolchains.\
 """
-version = "0.4.1"
+version = "0.5.0"
 authors = ["Chris Denton <christophersdenton@gmail.com>"]
 edition = "2018"
 license = "MIT OR Apache-2.0 OR Zlib"
