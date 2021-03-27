@@ -65,7 +65,7 @@
 //! }
 //! ```
 //!
-//! <style>#macros + table > tbody > tr:not(:last-child) { display: none !important; }</style>
+//! <style>#macros + table > tbody > tr:not(:first-child) { display: none !important; }</style>
 //!
 
 mod msvc_impl;
@@ -77,9 +77,9 @@ pub mod windows_msvc {
     pub use crate::msvc_impl::LinkArgs;
     pub use crate::msvc_impl::ArgSize;
     #[doc(inline)]
-    pub use crate::impl_msvc_stack_size as stack_size;
+    pub use crate::windows_msvc_stack_size as stack_size;
     #[doc(inline)]
-    pub use crate::impl_msvc_default_lib as default_lib;
+    pub use crate::windows_msvc_default_lib as default_lib;
     #[doc(inline)]
-    pub use crate::impl_msvc_raw as raw;
+    pub use crate::windows_msvc_raw as raw;
 }

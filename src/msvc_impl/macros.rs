@@ -23,7 +23,7 @@ macro_rules! impl_msvc_bytes {
 /// link_args::windows_msvc::raw!(unsafe "/STACK:0x800000 /ENTRY:mainCRTStartup");
 /// ```
 #[macro_export]
-macro_rules! impl_msvc_raw {
+macro_rules! windows_msvc_raw {
     (unsafe $raw_args:expr) => {
         const _:() = {
             enum ns {}
@@ -62,7 +62,7 @@ macro_rules! impl_msvc_raw {
 /// link_args::windows_msvc::stack_size!(0x800000, 0x400000);
 /// ```
 #[macro_export]
-macro_rules! impl_msvc_stack_size {
+macro_rules! windows_msvc_stack_size {
     ($reserve:expr) => {
         const _: () = {
             $crate::impl_msvc_bytes!(
@@ -86,7 +86,7 @@ macro_rules! impl_msvc_stack_size {
 /// Default libraries will be used to find symbols when they are not found in
 /// libraries specified on the command line.
 #[macro_export]
-macro_rules! impl_msvc_default_lib {
+macro_rules! windows_msvc_default_lib {
     ($($lib:expr),+) => {
         $crate::impl_msvc_bytes!(
             $crate::impl_msvc_arg_size!(default_lib($($lib),+)),
