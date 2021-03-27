@@ -1,4 +1,5 @@
 
+#[doc(hidden)]
 #[macro_export]
 macro_rules! impl_msvc_bytes {
     ($size:expr, $bytes:expr) => {
@@ -84,7 +85,6 @@ macro_rules! impl_msvc_stack_size {
 ///
 /// Default libraries will be used to find symbols when they are not found in
 /// libraries specified on the command line.
-#[doc(no_inline)]
 #[macro_export]
 macro_rules! impl_msvc_default_lib {
     ($($lib:expr),+) => {
@@ -180,7 +180,7 @@ macro_rules! windows_msvc {
         };
     };
 }
-
+#[doc(hidden)]
 #[macro_export]
 macro_rules! impl_msvc_args {
     // These are (probably) safe.
@@ -210,6 +210,7 @@ macro_rules! impl_msvc_args {
         $args.raw($raw)
     };
 }
+#[doc(hidden)]
 #[macro_export]
 macro_rules! impl_msvc_arg_size {
     // These are (probably) safe.
