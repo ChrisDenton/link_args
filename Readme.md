@@ -1,6 +1,8 @@
 Allows setting linker arugments at compile time without a build script.
 Currently only supports Windows MSVC toolchains.
 
+Minimum Rust version: 1.51
+
 # Usage
 
 Add this to your `Cargo.toml`:
