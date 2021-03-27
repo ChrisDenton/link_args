@@ -1,4 +1,4 @@
-Supports setting linker arugments at compile time without a build script.
+Allows setting linker arugments at compile time without a build script.
 Currently only supports Windows MSVC toolchains.
 
 # Usage
@@ -19,7 +19,7 @@ link_args = "0.5"
 link_args::windows_msvc::stack_size!(0x800000);
 ```
 
-## Add a default library
+## Add a library
 
 ```rust
 link_args::windows_msvc::default_lib("kernel32.lib");
