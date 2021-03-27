@@ -26,7 +26,7 @@
 //!
 //! ## Add a default library
 //!
-//! Add "mylibrary.lib" to the libraries that are serached for symbols.
+//! Add "kernel32.lib" to the libraries that are serached for symbols.
 //!
 //! ```rust
 //! link_args::windows_msvc::default_lib!("kernel32.lib");
