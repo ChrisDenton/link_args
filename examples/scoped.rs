@@ -1,11 +1,9 @@
 link_args::windows_msvc! {
-    unsafe {
         // Reserve 8 MiB for the stack.
         stack_size(0x800000, 0x400000);
         
         // Link the ucrt dynamically and vcruntime statically.
         default_lib("ucrt", "libvcruntime", "libcmt");
-    }
 }
 
 link_args::windows_msvc! {
