@@ -1,4 +1,9 @@
 
+/// Turn the given bytes into a linker directive without any processing.
+///
+/// This will not check for errors such as invalid arguments.
+/// The bytes should end with a space (` `) otherwise to seperate it from any
+/// further arguments that may be added.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! impl_msvc_bytes {
@@ -180,6 +185,8 @@ macro_rules! windows_msvc {
         };
     };
 }
+
+/// Build the linker arguments using a macro.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! impl_msvc_args {
@@ -210,6 +217,8 @@ macro_rules! impl_msvc_args {
         $args.raw($raw)
     };
 }
+
+/// Calculate the size of linker arguments using a macro.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! impl_msvc_arg_size {
@@ -238,5 +247,3 @@ macro_rules! impl_msvc_arg_size {
         $lib.len() + 1
     };
 }
-
-pub use windows_msvc;
