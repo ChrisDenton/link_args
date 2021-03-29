@@ -74,7 +74,7 @@ impl<const CAPACITY: usize> LinkArgs<CAPACITY> {
     ///
     /// ```rust
     /// # #[cfg(not(debug_assertions))]
-    /// link_args::msvc::no_default_lib!("kernel32");
+    /// link_args::windows::no_default_lib!("kernel32");
     /// ```
     pub const unsafe fn no_default_lib(mut self, lib: &str) -> Self {
         self.buffer = self.buffer
@@ -98,20 +98,20 @@ impl<const CAPACITY: usize> LinkArgs<CAPACITY> {
     ///
     /// # Examples
     ///
-    /// ## The `windows_msvc!` macro.
+    /// ## The `windows!` macro.
     ///
     /// ```rust
-    /// link_args::windows_msvc!{
+    /// link_args::windows!{
     ///     unsafe {
     ///         raw("/ENTRY:mainCRTStartup /STACK:0x800000");
     ///     }
     /// }
     /// ```
     ///
-    /// ## The `windows_msvc::raw!` macro.
+    /// ## The `windows::raw!` macro.
     ///
     /// ```rust
-    /// link_args::windows_msvc::raw!(unsafe "/ENTRY:mainCRTStartup /STACK:0x800000");
+    /// link_args::windows::raw!(unsafe "/ENTRY:mainCRTStartup /STACK:0x800000");
     /// ```
     ///
     /// # Possible arguments

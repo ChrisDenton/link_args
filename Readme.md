@@ -9,7 +9,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-link_args = "0.5"
+link_args = "0.6"
 ```
 
 # Examples

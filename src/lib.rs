@@ -8,7 +8,7 @@
 //! Add this to your `Cargo.toml`:
 //! ```toml
 //! [dependencies]
-//! link_args = "0.5"
+//! link_args = "0.6"
 //! ```
 //!
 //! # Examples
@@ -21,7 +21,7 @@
 //! only be set for crates that produce a `.exe` or `.dll` binary.
 //!
 //! ```rust
-//! link_args::windows_msvc::stack_size!(0x800000);
+//! link_args::windows::stack_size!(0x800000);
 //! ```
 //!
 //! ## Add a default library
@@ -29,15 +29,15 @@
 //! Add "kernel32.lib" to the libraries that are serached for symbols.
 //!
 //! ```rust
-//! link_args::windows_msvc::default_lib!("kernel32.lib");
+//! link_args::windows::default_lib!("kernel32.lib");
 //! ```
 //!
-//! ## Use the `windows_msvc` macro
+//! ## Use the `windows!` macro
 //! 
-//! The [`windows_msvc!`] macro lets you set multiple arguments at once.
+//! The [`windows!`] macro lets you set multiple arguments at once.
 //!
 //! ```rust
-//! link_args::windows_msvc! {
+//! link_args::windows! {
 //!     stack_size(0x800000);
 //!     default_lib("kernel32.lib");
 //! }
@@ -49,7 +49,7 @@
 //! ```rust
 //! // Only set these in release mode.
 //! #[cfg(not(debug_assertions))]
-//! link_args::windows_msvc! {
+//! link_args::windows! {
 //!     // Some of these linker args are unsafe so we have to use
 //!     // an `unsafe` block.
 //!     unsafe {
@@ -70,16 +70,22 @@
 
 mod msvc_impl;
 
-// The "official" public interface.
-/// Construct and use linker directives for Windows MSVC toolchains.
-pub mod windows_msvc {
-    // These are mostly exported so I can use links.
-    pub use crate::msvc_impl::LinkArgs;
-    pub use crate::msvc_impl::ArgSize;
+
+
+/// Set linker arguments for the Windows toolchain
+pub mod windows {
+    #[doc(inline)]
+    pub use crate::windows_raw as raw;
+
     #[doc(inline)]
     pub use crate::windows_msvc_stack_size as stack_size;
     #[doc(inline)]
     pub use crate::windows_msvc_default_lib as default_lib;
-    #[doc(inline)]
-    pub use crate::windows_msvc_raw as raw;
+
+    /// Helpers for constructing MSVC linker arguments.
+    pub mod msvc {
+        // These are mostly exported so I can use links.
+        pub use crate::msvc_impl::LinkArgs;
+        pub use crate::msvc_impl::ArgSize;
+    }
 }
